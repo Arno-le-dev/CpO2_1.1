@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='CpO2_1.0'
