@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.example.cpo2_10.R;
 import com.example.cpo2_10.modele.add_newProduct;
 
-
+// commentaire
 public class MainActivity extends AppCompatActivity {
 
     private ImageView add;
