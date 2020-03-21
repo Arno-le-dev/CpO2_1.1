@@ -1,4 +1,4 @@
-package com.example.cpo2_10;
+package com.example.cpo2_10.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.net.Uri;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+
+import com.example.cpo2_10.R;
+import com.example.cpo2_10.modele.add_newProduct;
 
 
 public class MainActivity extends AppCompatActivity {
