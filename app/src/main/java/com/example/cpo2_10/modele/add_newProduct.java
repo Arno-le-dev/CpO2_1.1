@@ -3,8 +3,12 @@ package com.example.cpo2_10.modele;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 
 import com.example.cpo2_10.R;
+
+import java.util.Date;
 
 public class add_newProduct extends AppCompatActivity {
 
@@ -14,19 +18,24 @@ public class add_newProduct extends AppCompatActivity {
         setContentView(R.layout.activity_add_new_product);
     }
 
-// Propriétés produit
-
+    /**
+     * Propriétés du produit
+     */
+    private Date dateMesure;
     private String nomProduit;
     private String marqueProduit;
     private Integer empreinteCarbone;
     private String origine;
     private Integer note;
 
-    public add_newProduct(String nomProduit, String marqueProduit, Integer empreinteCarbone, String origine) {
+
+    public void Product(Date dateMesure, String nomProduit, String marqueProduit, Integer empreinteCarbone, String origine) {
+        this.dateMesure = dateMesure;
         this.nomProduit = nomProduit;
         this.marqueProduit = marqueProduit;
         this.empreinteCarbone = empreinteCarbone;
         this.origine = origine;
+        this.calculerNote();
     }
 
     public String getNomProduit() {
@@ -49,7 +58,13 @@ public class add_newProduct extends AppCompatActivity {
         return note;
     }
 
-    private void caculerNote() {
+    public Date getDateMesure() { return dateMesure; }
+
+
+    /**
+     * Calcul de la note du produit
+     */
+    private void calculerNote() {
 
         if (empreinteCarbone <= 1)
             note = 5;
@@ -70,5 +85,10 @@ public class add_newProduct extends AppCompatActivity {
             note = 0;
         }
 
-    }
+
+
+}
+
+
+
 
