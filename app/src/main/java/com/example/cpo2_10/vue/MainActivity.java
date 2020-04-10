@@ -3,6 +3,7 @@ package com.example.cpo2_10.vue;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.view.View;
 import android.content.Intent;
@@ -23,23 +24,33 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView add;
 
+    public static SQLiteDatabase maBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      // doute
-        init();
-        this.controle= Controle.getInstance(this);
+
+        maBase = openOrCreateDatabase("maBaseDeDonneesProduits",MODE_PRIVATE,null);
+        // on cree la table pokemon si elle n'existait pas
+
+        String creation ="create table if not exists fiche ("
+                + "Produit TEXT ,"
+                + "Marque TEXT ,"
+                + "Origine TEXT ,"
+                + "EmpreinteCarbone REAL NOT NULL,"
+                + "Note REAL NOT NULL"
+                + ")";
+        maBase.execSQL(creation);
+
 
 
         this.add= (ImageView) findViewById(R.id.btnAdd);
-
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent addProduct = new Intent(getApplicationContext() , add_newProduct.class);
                 startActivity(addProduct);
-                finish();
 
             }
         });
@@ -65,67 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    //propriétés
-    private EditText txtProduit;
-    private EditText txtMarque;
-    private EditText txtOrigine;
-    private EditText txtEmpreinteCarbon;
-    private ImageButton buttonadd;
-    private TextView txtnote;
-    private Controle controle;
-
-    /**
-     * Initialisation des liens avec les objets graphiques
-     */
-    private void init(){
-        txtProduit = (EditText) findViewById(R.id.txtProduit);
-        txtMarque = (EditText) findViewById(R.id.txtMarque);
-        txtOrigine = (EditText) findViewById(R.id.txtOrigine);
-        txtEmpreinteCarbon = (EditText) findViewById(R.id.txtEmpreinteCarbone);
-        buttonadd = (ImageButton) findViewById(R.id.btnAdd);
-        ecouteAddBtn();
-    }
-
-  private void ecouteAddBtn(){
-        buttonadd.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v){
-
-                String Produit = (txtProduit.getText().toString());
-                String Marque= (txtMarque.getText().toString());
-                String Origine = (txtOrigine.getText().toString());
-
-                Integer empreinteCarbone=0;
-               // récupération des données saisies
-               try{
-                   empreinteCarbone = Integer.parseInt(txtEmpreinteCarbon.getText().toString());
-
-               }catch (Exception e) {};
-               // contrôle conformité valeur saisie
-                if (empreinteCarbone==0) {
-                    Toast.makeText(MainActivity.this, "Saisie incorrecte", Toast.LENGTH_SHORT).show();
-                }else{
-                    creationFiche(Produit, Marque, empreinteCarbone, Origine);
-                }
-
-            }
-
-        });
-    }
-
-    /**
-     * Création de la fiche produit
-     * @param Produit
-     * @param Marque
-     * @param EmpreinteCarbone
-     * @param Origine
-     */
-
-    public void creationFiche(String Produit, String Marque, Integer EmpreinteCarbone, String Origine ){
-        this.controle.createProduct(Produit,Marque,EmpreinteCarbone,Origine);
-
-    }
-
 
 }
 

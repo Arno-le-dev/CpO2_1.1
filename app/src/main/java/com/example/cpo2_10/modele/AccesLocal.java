@@ -34,12 +34,6 @@ public class AccesLocal {
      * @param
      */
         public void ajoutFiche (String nomProduit, String marqueProduit, Integer empreinteCarbone, String origine){
-            add_newProduct Product2 = new add_newProduct();
-            Product2.Product(new Date(), nomProduit, marqueProduit, empreinteCarbone, origine);
-            bd = accesDB.getWritableDatabase();
-            String req = "insert into fiche(dateMesure, Produit, Marque, Origine, EmpreinteCarbone) values";
-            req += "(\"" + Product2.getDateMesure() + "\"," + Product2.getNomProduit() + "," + Product2.getMarqueProduit() + "," + Product2.getOrigine() + "," + Product2.getEmpreinteCarbone() + ")";
-            bd.execSQL(req);
         }
     }
 

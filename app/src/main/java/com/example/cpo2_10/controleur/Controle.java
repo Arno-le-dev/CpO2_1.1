@@ -23,8 +23,10 @@ public final class Controle {
     /**
      * constructeur private
      */
-    private Controle() {
+    public Controle() {
         super();
+        accesLocal = new AccesLocal (null);
+
     }
 
 
@@ -49,9 +51,7 @@ public final class Controle {
 
     public void createProduct(String nomProduit, String marqueProduit, Integer empreinteCarbone , String origine){
         add_newProduct Product1 = new add_newProduct();
-        Product1.Product(new Date(), nomProduit, marqueProduit, empreinteCarbone, origine);
         accesLocal.ajoutFiche(nomProduit, marqueProduit, empreinteCarbone, origine);
-
 
     }
 
