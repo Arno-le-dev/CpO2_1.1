@@ -8,7 +8,11 @@ import android.widget.EditText;
 
 import com.example.cpo2_10.R;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class add_newProduct extends AppCompatActivity {
 
@@ -84,8 +88,6 @@ public class add_newProduct extends AppCompatActivity {
         else
             note = 0;
         }
-
-
 
 }
 

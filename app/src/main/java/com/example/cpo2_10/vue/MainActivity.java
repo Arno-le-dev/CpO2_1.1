@@ -1,13 +1,15 @@
 package com.example.cpo2_10.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
       // doute
         init();
-        this.controle= Controle.getInstance();
+        this.controle= Controle.getInstance(this);
 
 
-        this.add= (ImageView) findViewById(R.id.add);
+        this.add= (ImageView) findViewById(R.id.btnAdd);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtMarque;
     private EditText txtOrigine;
     private EditText txtEmpreinteCarbon;
-    private Button buttonadd;
+    private ImageButton buttonadd;
     private TextView txtnote;
     private Controle controle;
 
@@ -81,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
         txtMarque = (EditText) findViewById(R.id.txtMarque);
         txtOrigine = (EditText) findViewById(R.id.txtOrigine);
         txtEmpreinteCarbon = (EditText) findViewById(R.id.txtEmpreinteCarbone);
-        buttonadd = (Button) findViewById(R.id.btnAdd);
+        buttonadd = (ImageButton) findViewById(R.id.btnAdd);
         ecouteAddBtn();
     }
 
   private void ecouteAddBtn(){
-        ((Button) findViewById(R.id.btnAdd)).setOnClickListener(new Button.OnClickListener() {
+        buttonadd.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v){
 
                 String Produit = (txtProduit.getText().toString());
@@ -118,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
      * @param EmpreinteCarbone
      * @param Origine
      */
+
     public void creationFiche(String Produit, String Marque, Integer EmpreinteCarbone, String Origine ){
         this.controle.createProduct(Produit,Marque,EmpreinteCarbone,Origine);
 

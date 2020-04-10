@@ -3,6 +3,7 @@ package com.example.cpo2_10.outils;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -15,7 +16,11 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
             + "Produit TEXT PRIMARY KEY,"
             + "Marque TEXT PRIMARY KEY,"
             + "Origine TEXT PRIMARY KEY,"
-            + "EmpreinteCarbone INTEGER NOT NULL);";
+            + "EmpreinteCarbone INTEGER NOT NULL"
+            + ")";
+
+
+
 
 
     /**
@@ -29,8 +34,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
+
     /**
-     * Si changement de DB (dataBase)
+     * Création de la DB (dataBase)
      * @param db
      */
     @Override
