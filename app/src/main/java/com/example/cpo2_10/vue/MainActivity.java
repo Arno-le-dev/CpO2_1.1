@@ -2,21 +2,14 @@ package com.example.cpo2_10.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.cpo2_10.R;
-import com.example.cpo2_10.controleur.Controle;
 import com.example.cpo2_10.modele.add_newProduct;
 
 

@@ -10,19 +10,12 @@
     import android.view.View;
     import android.widget.Button;
     import android.widget.EditText;
-    import android.widget.ImageButton;
-    import android.widget.TextView;
     import android.widget.Toast;
 
     import com.example.cpo2_10.R;
-    import com.example.cpo2_10.controleur.Controle;
     import com.example.cpo2_10.vue.MainActivity;
 
-    import org.json.JSONArray;
-
-    import java.util.ArrayList;
     import java.util.Date;
-    import java.util.List;
 
     public class add_newProduct extends AppCompatActivity {
 
@@ -57,6 +50,8 @@
             txtEmpreinteCarbon = (EditText) findViewById(R.id.txtEmpreinteCarbone);
             buttonadd = (Button) findViewById(R.id.btnAdd);
 
+
+
             // definition des actions quand je clique sur boutonadd
             buttonadd.setOnClickListener(new Button.OnClickListener() {
                                              public void onClick(View v) {
@@ -65,21 +60,26 @@
                                                  String Marque = (txtMarque.getText().toString());
                                                  String Origine = (txtOrigine.getText().toString());
                                                  float empreinteCarbone = 0;
+
                                                  // récupération des données saisies
                                                  try {
-                                                     empreinteCarbone = Float.parseFloat(txtEmpreinteCarbon.getText().toString());
+                                                     empreinteCarbone =Float.parseFloat(txtEmpreinteCarbon.getText().toString());
 
                                                  } catch (Exception e) {
                                                  }
-                                                 ;
+                                                 Log.d("message", "on a : " +txtEmpreinteCarbon.getText().toString());
                                                  // contrôle conformité valeur saisie
-                                                 if (empreinteCarbone == 0) {
+                                                 Log.d("empreinte Carbone", "La E.C est de:"+empreinteCarbone) ;
+                                                 if (empreinteCarbone == 0.0) {
                                                      Toast.makeText(add_newProduct.this, "Saisie incorrecte", Toast.LENGTH_SHORT).show();
                                                  } else {
                                                      // tout est OK
-                                                     Toast.makeText(add_newProduct.this, "OK pour l'ajout", Toast.LENGTH_SHORT).show();
-                                                     calculerNote();
+                                                     Toast.makeText(add_newProduct.this, "Produit ajouté", Toast.LENGTH_SHORT).show();
+                                                   //  Log.d("empreinte Carbone", "La E.C est de:"+empreinteCarbone) ;
+                                                    note = calculerNote(empreinteCarbone);
+                                                     Log.d("Note", "La note est de:"+note) ;
                                                      creationFiche(Produit, Marque, empreinteCarbone, Origine, note);
+
                                                  }
 
                                              }
@@ -137,28 +137,34 @@
         /**
          * Calcul de la note du produit
          */
-        private void calculerNote() {
 
-            if (empreinteCarbone <= 1)
-                note = 5;
+        private int calculerNote(float e) {
 
-            else if (empreinteCarbone >= 1 && empreinteCarbone <= 3)
-                note = 4;
+            if (e <= 1.0) {
 
-            else if (empreinteCarbone > 3 && empreinteCarbone <= 6)
-                note = 3;
+            return(5);}
 
-            else if (empreinteCarbone > 6 && empreinteCarbone <= 9)
-                note = 2;
+            else if (e > 1.0 && e <= 3.0){
 
-            else if (empreinteCarbone > 9 && empreinteCarbone <= 11)
-                note = 1;
+            return(4);}
+
+            else if (e > 3.0 && e <= 6.0){
+
+            return(3);}
+
+            else if (e > 6.0 && e <= 9.0){
+
+            return(2);}
+
+            else if (e > 9.0 && e <= 11.0){
+
+            return(1);}
 
             else
                 note = 0;
-            }
+            return(0);
+        }
     }
-
 
 
 
