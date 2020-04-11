@@ -2,6 +2,7 @@
 
     import androidx.appcompat.app.AppCompatActivity;
 
+    import android.content.Intent;
     import android.database.Cursor;
     import android.database.sqlite.SQLiteDatabase;
     import android.database.sqlite.SQLiteException;
@@ -10,9 +11,11 @@
     import android.view.View;
     import android.widget.Button;
     import android.widget.EditText;
+    import android.widget.ImageView;
     import android.widget.Toast;
 
     import com.example.cpo2_10.R;
+    import com.example.cpo2_10.resultat;
     import com.example.cpo2_10.vue.MainActivity;
 
     import java.util.Date;
@@ -35,6 +38,8 @@
         private float empreinteCarbone;
         private String origine;
         private int note;
+
+
 
 
         static SQLiteDatabase maBase = MainActivity.maBase;
@@ -67,20 +72,30 @@
 
                                                  } catch (Exception e) {
                                                  }
-                                                 Log.d("message", "on a : " +txtEmpreinteCarbon.getText().toString());
-                                                 // contrôle conformité valeur saisie
-                                                 Log.d("empreinte Carbone", "La E.C est de:"+empreinteCarbone) ;
+
+                                                 // Contrôle 1 valeur empreinte Carbone dans le log
+                                                 Log.d("empreinte Carbone", "La E.C est de:"+empreinteCarbone);
+
+                                                 // contrôle 2 conformité valeur saisie
                                                  if (empreinteCarbone == 0.0) {
-                                                     Toast.makeText(add_newProduct.this, "Saisie incorrecte", Toast.LENGTH_SHORT).show();
+                                                     Toast.makeText(add_newProduct.this, "Saisie de l'empreinte carbone incorrecte", Toast.LENGTH_SHORT).show();
                                                  } else {
                                                      // tout est OK
                                                      Toast.makeText(add_newProduct.this, "Produit ajouté", Toast.LENGTH_SHORT).show();
-                                                   //  Log.d("empreinte Carbone", "La E.C est de:"+empreinteCarbone) ;
                                                     note = calculerNote(empreinteCarbone);
-                                                     Log.d("Note", "La note est de:"+note) ;
+
+                                                    // contrôle de la valeur de note dans le log
+                                                    Log.d("Note", "La note est de:"+note) ;
+
                                                      creationFiche(Produit, Marque, empreinteCarbone, Origine, note);
 
+                                                     // démarre nouvelle activité lorsque le bouton ajouté est cliqué
+                                                     Intent result = new Intent(getApplicationContext() , resultat.class);
+                                                     startActivity(result);
                                                  }
+
+
+
 
                                              }
                                          }
@@ -88,7 +103,14 @@
 
         }
 
-
+        /**
+         * Ajout fiche dans la base de donnée
+         * @param Produit
+         * @param Marque
+         * @param EmpreinteCarbone
+         * @param Origine
+         * @param note
+         */
             public void creationFiche(String Produit, String Marque, float EmpreinteCarbone, String Origine, int note ){
                 String req = "insert into fiche(Produit, Marque, Origine, EmpreinteCarbone, note) values";
                 req += "(\"" + Produit+ "\", \"" + Marque + "\", \"" + Origine + "\", "+ EmpreinteCarbone + "," +note + " )";

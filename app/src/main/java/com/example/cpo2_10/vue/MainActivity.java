@@ -2,15 +2,21 @@ package com.example.cpo2_10.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.database.sqlite.SQLiteDatabase;
+
 import android.net.Uri;
+
 import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+
 import com.example.cpo2_10.R;
 import com.example.cpo2_10.modele.add_newProduct;
+
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        maBase = openOrCreateDatabase("maBaseDeDonneesProduits",MODE_PRIVATE,null);
+        maBase = openOrCreateDatabase("maBaseDeDonneesProduits", MODE_PRIVATE, null);
         // on cree la table pokemon si elle n'existait pas
 
-        String creation ="create table if not exists fiche ("
+        String creation = "create table if not exists fiche ("
                 + "Produit TEXT ,"
                 + "Marque TEXT ,"
                 + "Origine TEXT ,"
@@ -37,18 +43,18 @@ public class MainActivity extends AppCompatActivity {
         maBase.execSQL(creation);
 
 
-
-        this.add= (ImageView) findViewById(R.id.btnAdd);
+        this.add = (ImageView) findViewById(R.id.btnAdd);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addProduct = new Intent(getApplicationContext() , add_newProduct.class);
+                Intent addProduct = new Intent(getApplicationContext(), add_newProduct.class);
                 startActivity(addProduct);
 
             }
         });
     }
-// hello
+
+    // hello
     public void carrefourWebsite(View view) {
         Intent carrefourWebsiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.carrefour.fr/services/drive"));
         startActivity(carrefourWebsiteIntent);
@@ -63,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         Intent interWebsiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://drive.intermarche.com/"));
         startActivity(interWebsiteIntent);
     }
+
     public void UWebsite(View view) {
         Intent UWebsiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.coursesu.com/drive/home"));
         startActivity(UWebsiteIntent);
@@ -70,5 +77,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
 }
+
+
 
