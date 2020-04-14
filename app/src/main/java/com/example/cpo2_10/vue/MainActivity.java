@@ -3,32 +3,47 @@ package com.example.cpo2_10.vue;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+
 import android.database.sqlite.SQLiteDatabase;
+
 
 import android.net.Uri;
 
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 
+import com.example.cpo2_10.FicheProduit;
 import com.example.cpo2_10.R;
 import com.example.cpo2_10.modele.add_newProduct;
-
-
-
+import com.example.cpo2_10.resultat;
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageView add;
 
     public static SQLiteDatabase maBase;
+    private EditText nameSearch;
+    private Button searchBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Cette directive enlève la barre de titre
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+// Cette directive permet d'enlever la barre de notifications pour afficher l'application en plein écran
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_main);
+
 
         maBase = openOrCreateDatabase("maBaseDeDonneesProduits", MODE_PRIVATE, null);
         // on cree la table pokemon si elle n'existait pas
@@ -37,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 + "Produit TEXT ,"
                 + "Marque TEXT ,"
                 + "Origine TEXT ,"
-                + "EmpreinteCarbone REAL NOT NULL,"
+                + "EmpreinteCarbone FLOAT NOT NULL,"
                 + "Note REAL NOT NULL"
                 + ")";
         maBase.execSQL(creation);
@@ -52,7 +67,33 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        searchBtn = (Button) findViewById(R.id.searchBtn);
+        nameSearch = (EditText) findViewById(R.id.Name);
+        final String[] nom = new String[1];
+
+
+
+        searchBtn.setOnClickListener(new Button.OnClickListener() {
+                                         public void onClick(View view) {
+                                             String nameS = nameSearch.getText().toString().toLowerCase();
+
+
+                                             // démarre nouvelle activité lorsque le bouton ajouté est cliqué
+                                             Intent result = new Intent(getApplicationContext() , resultat.class);
+                                             // on fait passé la recherche dans l'autre activité
+                                             result.putExtra("nameSearch", nameS);
+                                             Log.d("test main Activity", "**********************" +nameS);
+                                             startActivity(result);
+                                             finish();
+                                         }
+
+    });
+
+
     }
+
 
     // hello
     public void carrefourWebsite(View view) {

@@ -1,8 +1,6 @@
 package com.example.cpo2_10;
 
 
-import java.util.Date;
-
 public class FicheProduit {
 
     /**
@@ -35,14 +33,11 @@ public class FicheProduit {
     }
 
 
-    public FicheProduit(String nomProduit, String marqueProduit, float empreinteCarbone, String origine, int note) {
+    public FicheProduit(String nomProduit, String marqueProduit, String origine, float empreinteCarbone, int note) {
         this.nomProduit = nomProduit;
         this.marqueProduit = marqueProduit;
         this.empreinteCarbone = empreinteCarbone;
         this.origine = origine;
         this.note = note;
-
-
-
     }
 }

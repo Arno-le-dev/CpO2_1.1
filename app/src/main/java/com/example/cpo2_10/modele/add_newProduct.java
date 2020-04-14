@@ -29,14 +29,8 @@
         private EditText txtEmpreinteCarbon;
         private Button buttonadd;
 
-        /**
-         * Propriétés du produit
-         */
-        private Date dateMesure;
-        private String nomProduit;
-        private String marqueProduit;
-        private float empreinteCarbone;
-        private String origine;
+
+
         private int note;
 
 
@@ -48,6 +42,9 @@
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_add_new_product);
+
+
+
 
             txtProduit = (EditText) findViewById(R.id.txtProduit);
             txtMarque = (EditText) findViewById(R.id.txtMarque);
@@ -61,7 +58,7 @@
             buttonadd.setOnClickListener(new Button.OnClickListener() {
                                              public void onClick(View v) {
 
-                                                 String Produit = (txtProduit.getText().toString());
+                                                 String Produit = (txtProduit.getText().toString().toLowerCase());
                                                  String Marque = (txtMarque.getText().toString());
                                                  String Origine = (txtOrigine.getText().toString());
                                                  float empreinteCarbone = 0;
@@ -89,9 +86,6 @@
 
                                                      creationFiche(Produit, Marque, empreinteCarbone, Origine, note);
 
-                                                     // démarre nouvelle activité lorsque le bouton ajouté est cliqué
-                                                     Intent result = new Intent(getApplicationContext() , resultat.class);
-                                                     startActivity(result);
                                                  }
 
 
@@ -133,27 +127,6 @@
             }
 
 
-        public String getNomProduit() {
-            return nomProduit;
-        }
-
-        public String getMarqueProduit() {
-            return marqueProduit;
-        }
-
-        public float getEmpreinteCarbone() {
-            return empreinteCarbone;
-        }
-
-        public String getOrigine() {
-            return origine;
-        }
-
-        public int getNote() {
-            return note;
-        }
-
-        public Date getDateMesure() { return dateMesure; }
 
 
         /**

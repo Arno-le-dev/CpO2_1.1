@@ -28,15 +28,17 @@
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="397dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="101dp"
         android:background="#FFFFFF"
         android:onClick="casinoWebsite"
         android:scaleType="centerInside"
         android:tint="#00744D4D"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/interButton1"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name"
         app:srcCompat="@drawable/casino_logo" />
 
     <ImageButton
@@ -77,6 +79,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:ems="10"
+        android:hint="Nom du produit... "
+        android:inputType="textCapWords"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="288dp"
+        android:text="Rechercher"
+        app:layout_constraintBottom_toTopOf="@+id/interButton1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
