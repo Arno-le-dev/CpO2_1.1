@@ -37,10 +37,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //Cette directive enlève la barre de titre
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 // Cette directive permet d'enlever la barre de notifications pour afficher l'application en plein écran
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
 

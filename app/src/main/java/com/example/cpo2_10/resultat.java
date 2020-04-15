@@ -8,16 +8,34 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.example.cpo2_10.vue.MainActivity;
 
 import static com.example.cpo2_10.vue.MainActivity.maBase;
 
 
 public class resultat extends AppCompatActivity {
 
+
+    private ImageButton home_button;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Cette directive enlève la barre de titre
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+// Cette directive permet d'enlever la barre de notifications pour afficher l'application en plein écran
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_resultat);
 
         try {
@@ -65,6 +83,19 @@ public class resultat extends AppCompatActivity {
 
 
 
+        // bouton home
+        home_button = (ImageButton) findViewById(R.id.home_button);
+        home_button.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View view) {
+
+                // démarre nouvelle activité lorsque le bouton ajouté est cliqué
+                Intent result = new Intent(getApplicationContext() , MainActivity.class);
+                // on fait passé la recherche dans l'autre activité
+                startActivity(result);
+                finish();
+            }
+
+        });
 
 
     }

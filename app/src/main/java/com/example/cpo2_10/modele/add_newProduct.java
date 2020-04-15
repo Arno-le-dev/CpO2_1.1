@@ -1,7 +1,9 @@
     package com.example.cpo2_10.modele;
 
+    import androidx.appcompat.app.AlertDialog;
     import androidx.appcompat.app.AppCompatActivity;
 
+    import android.content.DialogInterface;
     import android.content.Intent;
     import android.database.Cursor;
     import android.database.sqlite.SQLiteDatabase;
@@ -9,8 +11,11 @@
     import android.os.Bundle;
     import android.util.Log;
     import android.view.View;
+    import android.view.Window;
+    import android.view.WindowManager;
     import android.widget.Button;
     import android.widget.EditText;
+    import android.widget.ImageButton;
     import android.widget.ImageView;
     import android.widget.Toast;
 
@@ -19,6 +24,7 @@
     import com.example.cpo2_10.vue.MainActivity;
 
     import java.util.Date;
+    import java.util.Dictionary;
 
     public class add_newProduct extends AppCompatActivity {
 
@@ -28,11 +34,12 @@
         private EditText txtOrigine;
         private EditText txtEmpreinteCarbon;
         private Button buttonadd;
-
-
+        private ImageButton home_button;
 
         private int note;
 
+AlertDialog verifOrtho;
+AlertDialog.Builder builder;
 
 
 
@@ -41,6 +48,13 @@
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+
+            //Cette directive enlève la barre de titre
+            this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+// Cette directive permet d'enlever la barre de notifications pour afficher l'application en plein écran
+            this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getSupportActionBar().hide();
+
             setContentView(R.layout.activity_add_new_product);
 
 
@@ -65,26 +79,44 @@
 
                                                  // récupération des données saisies
                                                  try {
-                                                     empreinteCarbone =Float.parseFloat(txtEmpreinteCarbon.getText().toString());
+                                                     empreinteCarbone = Float.parseFloat(txtEmpreinteCarbon.getText().toString());
 
                                                  } catch (Exception e) {
                                                  }
 
                                                  // Contrôle 1 valeur empreinte Carbone dans le log
-                                                 Log.d("empreinte Carbone", "La E.C est de:"+empreinteCarbone);
+                                                 Log.d("empreinte Carbone", "La E.C est de:" + empreinteCarbone);
 
                                                  // contrôle 2 conformité valeur saisie
                                                  if (empreinteCarbone == 0.0) {
                                                      Toast.makeText(add_newProduct.this, "Saisie de l'empreinte carbone incorrecte", Toast.LENGTH_SHORT).show();
                                                  } else {
                                                      // tout est OK
-                                                     Toast.makeText(add_newProduct.this, "Produit ajouté", Toast.LENGTH_SHORT).show();
-                                                    note = calculerNote(empreinteCarbone);
-
-                                                    // contrôle de la valeur de note dans le log
-                                                    Log.d("Note", "La note est de:"+note) ;
+                                                     note = calculerNote(empreinteCarbone);
+                                                     // contrôle de la valeur de note dans le log
+                                                     Log.d("Note", "La note est de:" + note);
 
                                                      creationFiche(Produit, Marque, empreinteCarbone, Origine, note);
+
+                                                     Toast.makeText(add_newProduct.this, "Produit ajouté", Toast.LENGTH_SHORT).show();
+
+                                                     builder = new AlertDialog.Builder(add_newProduct.this);
+                                                     builder.setTitle("Avez vous vérifier l'orthographe?");
+
+                                                     builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+
+                                                         @Override
+                                                         public void onClick(DialogInterface dialog, int which) {
+                                                         }
+                                                     });
+                                                     builder.setNegativeButton("Je le fais maintenant", new DialogInterface.OnClickListener() {
+
+                                                         @Override
+                                                         public void onClick(DialogInterface dialog, int which) {
+
+                                                         }
+                                                     });
+
 
                                                  }
 
@@ -94,6 +126,22 @@
                                              }
                                          }
             );
+
+
+
+           home_button = (ImageButton) findViewById(R.id.home_button);
+            home_button.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View view) {
+
+                    // démarre nouvelle activité lorsque le bouton ajouté est cliqué
+                    Intent result = new Intent(getApplicationContext() , MainActivity.class);
+                    // on fait passé la recherche dans l'autre activité
+                    startActivity(result);
+                    finish();
+                }
+
+            });
+
 
         }
 

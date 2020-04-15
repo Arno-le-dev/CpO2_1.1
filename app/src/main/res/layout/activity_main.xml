@@ -5,7 +5,9 @@
     android:id="@+id/schema"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vue.MainActivity">
+    tools:context=".vue.MainActivity"
+    android:background="@drawable/background_1_0">
+
 
 
     <ImageButton
@@ -62,11 +64,13 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="469dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="284dp"
+        android:layout_marginBottom="32dp"
         android:text="Nos partenaires : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/carrefourButton1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/btnAdd"
@@ -105,6 +109,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Name" />
+
+    <ImageButton
+        android:id="@+id/home_button"
+        android:layout_width="80dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="258dp"
+        android:layout_marginBottom="404dp"
+        android:background="@drawable/home_btn"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/btnAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/appli_logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
