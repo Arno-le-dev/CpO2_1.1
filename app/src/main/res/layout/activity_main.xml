@@ -9,55 +9,46 @@
     android:background="@drawable/background_1_0">
 
 
-
     <ImageButton
         android:id="@+id/carrefourButton1"
         android:layout_width="100dp"
         android:layout_height="80dp"
-        android:layout_marginTop="550dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="101dp"
-        android:background="#FFFFFF"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/bouton_magasin"
         android:onClick="carrefourWebsite"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/interButton1"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/carrefour_logo" />
 
     <ImageButton
         android:id="@+id/casinoButton1"
         android:layout_width="100dp"
         android:layout_height="80dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="397dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="101dp"
-        android:background="#FFFFFF"
-        android:onClick="casinoWebsite"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/bouton_magasin"
+        android:onClick="lidl"
         android:scaleType="centerInside"
         android:tint="#00744D4D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/interButton1"
-        app:layout_constraintTop_toBottomOf="@+id/Name"
-        app:srcCompat="@drawable/casino_logo" />
+        app:srcCompat="@drawable/lidl_logo" />
 
     <ImageButton
         android:id="@+id/interButton1"
         android:layout_width="100dp"
         android:layout_height="80dp"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="550dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="101dp"
-        android:background="#FFFFFF"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/bouton_magasin"
         android:onClick="interWebsite"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/casinoButton1"
+        app:layout_constraintStart_toEndOf="@+id/carrefourButton1"
         app:srcCompat="@drawable/inter_logo" />
 
     <TextView
@@ -66,10 +57,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="284dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="57dp"
         android:text="Nos partenaires : "
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/carrefourButton1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -78,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/home_btn"
         android:tint="#8A7B7B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -86,7 +80,7 @@
 
     <EditText
         android:id="@+id/Name"
-        android:layout_width="170dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
         android:ems="10"
@@ -125,6 +119,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/appli_logo" />
+
+    <TextView
+        android:id="@+id/annonce"
+        android:layout_width="283dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="64dp"
+        android:cursorVisible="false"
+        android:gravity="center"
+        android:text="Découvrez l'empreinte carbone de votre consommation grâce à CpO2 !"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchBtn" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

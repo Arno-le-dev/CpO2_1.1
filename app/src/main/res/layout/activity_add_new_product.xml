@@ -4,118 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_add1"
     tools:context=".modele.add_newProduct"
     tools:layout_editor_absoluteX="-4dp"
     tools:layout_editor_absoluteY="-1dp">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Entrez les données de votre produit"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtProduit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_button" />
-
-    <EditText
-        android:id="@+id/txtEmpreinteCarbone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="Empreinte Carbone..."
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtOrigine" />
-
-    <EditText
-        android:id="@+id/txtOrigine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="103dp"
-        android:ems="10"
-        android:hint="Origine..."
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtEmpreinteCarbone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMarque" />
-
-
-    <EditText
-        android:id="@+id/txtProduit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="Nom du produit... "
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtMarque"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <EditText
-        android:id="@+id/txtMarque"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="Marque..."
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtOrigine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtProduit" />
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="173dp"
-        android:layout_marginBottom="183dp"
-        android:text="Ajouter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmpreinteCarbone" />
 
     <ImageButton
         android:id="@+id/home_button"
         android:layout_width="80dp"
         android:layout_height="79dp"
-        android:layout_marginStart="21dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="310dp"
+        android:layout_marginEnd="305dp"
         android:background="@drawable/home_btn"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/appli_logo" />
+
+    <LinearLayout
+        android:layout_width="297dp"
+        android:layout_height="440dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="60dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_button">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Entrez les données de votre produit"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtProduit"
+            android:layout_width="151dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="103dp"
+            android:ems="10"
+            android:hint="Nom du produit... "
+            android:inputType="textPersonName"
+            android:shadowColor="#C91321" />
+
+        <Spinner
+            android:id="@+id/magasinSpin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/actv"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:completionHint="Origine"
+            android:completionThreshold="1"
+            android:hint="Origine" />
+
+        <EditText
+            android:id="@+id/txtEmpreinteCarbone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Empreinte Carbone..."
+            android:inputType="numberDecimal" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="99dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="173dp"
+            android:background="@drawable/add_btn"
+            android:shadowColor="#FBFBFB"
+            android:text="Ajouter"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

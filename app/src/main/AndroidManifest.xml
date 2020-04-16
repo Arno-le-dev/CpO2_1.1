@@ -6,12 +6,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/appli_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/appli_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".resultat"></activity>
+        <activity android:name=".charte_activity"></activity>
+        <activity android:name=".resultat" />
         <activity android:name=".modele.add_newProduct" />
         <activity android:name=".vue.MainActivity">
             <intent-filter>
@@ -20,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Pop"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 
 </manifest>

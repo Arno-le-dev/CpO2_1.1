@@ -73,8 +73,6 @@ public class resultat extends AppCompatActivity {
                 empreinteC.setText(c.getString(3));
                 note.setText(c.getString(4)+ "/5");
 
-
-
             }
             c.close();
         } catch (SQLException se) {
@@ -96,6 +94,9 @@ public class resultat extends AppCompatActivity {
             }
 
         });
+
+
+
 
 
     }

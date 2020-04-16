@@ -6,122 +6,160 @@
     android:layout_height="match_parent"
     tools:context=".resultat">
 
-    <TextView
-        android:id="@+id/origine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/marque"
-        app:layout_constraintTop_toBottomOf="@+id/marque" />
-
-    <TextView
-        android:id="@+id/nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="83dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/Aff_nom"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/marque"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/nom"
-        app:layout_constraintTop_toBottomOf="@+id/nom" />
-
-    <TextView
-        android:id="@+id/empreinteC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/origine"
-        app:layout_constraintTop_toBottomOf="@+id/origine" />
-
-    <TextView
-        android:id="@+id/note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:scrollbarSize="4dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/empreinteC"
-        app:layout_constraintTop_toBottomOf="@+id/empreinteC" />
-
-    <TextView
-        android:id="@+id/Aff_eC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:text="Empreinte Carbone :"
-        android:textSize="18sp"
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="56dp"
+        android:background="#6D8BC34A"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/empreinteC" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-    <TextView
-        android:id="@+id/Aff_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:text="Note : "
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/Aff_eC"
-        app:layout_constraintTop_toBottomOf="@+id/Aff_eC" />
+        <TextView
+            android:id="@+id/Aff_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="330dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Note : "
+            android:textColor="#B7070707"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/Aff_o"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Origine : "
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Aff_eC"
-        app:layout_constraintEnd_toEndOf="@+id/Aff_eC" />
+        <TextView
+            android:id="@+id/Aff_eC"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="260dp"
+            android:gravity="center"
+            android:text="Empreinte Carbone :"
+            android:textColor="#B7070707"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/Aff_m"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="31dp"
-        android:text="Marque :"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Aff_o"
-        app:layout_constraintEnd_toEndOf="@+id/Aff_o" />
+        <TextView
+            android:id="@+id/Aff_o"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="190dp"
+            android:text="Origine : "
+            android:textColor="#B7070707"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/Aff_nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:text="Produit : "
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/nom"
-        app:layout_constraintStart_toStartOf="@+id/Aff_m" />
+        <TextView
+            android:id="@+id/Aff_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="120dp"
+            android:text="Marque :"
+            android:textColor="#B7070707"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/Aff_nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:text="Produit : "
+            android:textColor="#B7070707"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="330dp"
+            android:scrollbarSize="4dp"
+            android:text="TextView"
+            android:textColor="#B7070707"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/empreinteC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="265dp"
+            android:text="TextView"
+            android:textColor="#B7070707"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/origine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="190dp"
+            android:text="TextView"
+            android:textColor="#B7070707"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/marque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="120dp"
+            android:text="TextView"
+            android:textColor="#B7070707"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            android:textColor="#B7070707"
+            android:textSize="18sp" />
+    </FrameLayout>
 
     <ImageButton
         android:id="@+id/home_button"
         android:layout_width="80dp"
         android:layout_height="79dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="158dp"
         android:background="@drawable/home_btn"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/Aff_eC"
-        app:layout_constraintEnd_toStartOf="@+id/Aff_nom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/appli_logo" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="124dp"
+        android:text="Votre recherche : "
+        android:textColor="#C6000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="153dp"
+        android:layout_height="88dp"
+        android:cropToPadding="false"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/carrefour_logo"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="576dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,11 @@
 package com.example.cpo2_10.vue;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
+import android.content.DialogInterface;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
@@ -18,10 +20,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
+import com.example.cpo2_10.Dialog_main;
 import com.example.cpo2_10.FicheProduit;
 import com.example.cpo2_10.R;
+import com.example.cpo2_10.charte_activity;
 import com.example.cpo2_10.modele.add_newProduct;
 import com.example.cpo2_10.resultat;
 
@@ -44,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
 
+
         setContentView(R.layout.activity_main);
 
 
@@ -64,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addProduct = new Intent(getApplicationContext(), add_newProduct.class);
+                Intent addProduct = new Intent(getApplicationContext(), charte_activity.class);
                 startActivity(addProduct);
 
             }
@@ -81,15 +87,25 @@ public class MainActivity extends AppCompatActivity {
                                          public void onClick(View view) {
                                              String nameS = nameSearch.getText().toString().toLowerCase();
 
+                                             Cursor c;
+                                             c = maBase.rawQuery("SELECT * FROM fiche WHERE Produit =? order By Note desc limit 1 ;", new String[]{nameS});
 
-                                             // démarre nouvelle activité lorsque le bouton ajouté est cliqué
-                                             Intent result = new Intent(getApplicationContext() , resultat.class);
-                                             // on fait passé la recherche dans l'autre activité
-                                             result.putExtra("nameSearch", nameS);
-                                             Log.d("test main Activity", "**********************" +nameS);
-                                             startActivity(result);
-                                             finish();
-                                         }
+                                             if ((c != null ) && (c.moveToFirst())){
+                                                 // démarre nouvelle activité lorsque le bouton ajouté est cliqué
+                                                 Intent result = new Intent(getApplicationContext() , resultat.class);
+                                                 // on fait passé la recherche dans l'autre activité
+                                                 result.putExtra("nameSearch", nameS);
+                                                 Log.d("test main Activity", "**********************" +nameS);
+                                                 startActivity(result);
+                                                 finish();
+                                             }else {
+                                                 openDialog();
+                                             }
+                                             }
+
+
+
+
 
     });
 
@@ -103,9 +119,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(carrefourWebsiteIntent);
     }
 
-    public void casinoWebsite(View view) {
-        Intent casinoWebsiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.casinodrive.fr/ecommerce/prehome/drive"));
-        startActivity(casinoWebsiteIntent);
+    public void lidl(View view) {
+        Intent lidlIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.lidl.fr/"));
+        startActivity(lidlIntent);
     }
 
     public void interWebsite(View view) {
@@ -113,14 +129,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(interWebsiteIntent);
     }
 
-    public void UWebsite(View view) {
-        Intent UWebsiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.coursesu.com/drive/home"));
-        startActivity(UWebsiteIntent);
 
 
-    }
-
-
+public void openDialog(){
+        Dialog_main dialog_main = new Dialog_main();
+        dialog_main.show(getSupportFragmentManager(),"test");
+}
 
 }
 

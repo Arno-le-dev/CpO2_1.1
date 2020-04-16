@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CpO2_1.0</string>
+
+    <string-array name="magasin">
+        <item>Carrefour</item>
+        <item>Casino</item>
+        <item>Intermarché</item>
+    </string-array>
 </resources>
