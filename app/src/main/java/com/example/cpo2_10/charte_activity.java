@@ -8,13 +8,16 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.cpo2_10.modele.add_newProduct;
+import com.example.cpo2_10.vue.MainActivity;
 
 public class charte_activity extends AppCompatActivity {
 
 
     private Button btn_next;
+    private ImageButton home_button;
 
 
     @Override
@@ -40,5 +43,21 @@ public class charte_activity extends AppCompatActivity {
 
             }
         });
+
+
+        // bouton home
+        home_button = (ImageButton) findViewById(R.id.home_button);
+        home_button.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View view) {
+
+                // démarre nouvelle activité lorsque le bouton home est cliqué
+                Intent result = new Intent(getApplicationContext() , MainActivity.class);
+                startActivity(result);
+                finish();
+            }
+
+        });
+
+
     }
 }

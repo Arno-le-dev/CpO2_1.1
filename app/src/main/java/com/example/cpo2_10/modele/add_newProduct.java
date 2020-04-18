@@ -158,7 +158,7 @@ public class add_newProduct extends AppCompatActivity implements AdapterView.OnI
                                                  }else{
 
                                                          dialog_ajout dialog_main = new dialog_ajout();
-                                                         dialog_main.show(getSupportFragmentManager(),"test");
+                                                         dialog_main.show(getSupportFragmentManager(),"appel à la relecture");
                                                      }
                                                  }
 

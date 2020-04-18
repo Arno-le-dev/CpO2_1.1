@@ -1,10 +1,9 @@
 package com.example.cpo2_10.vue;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import android.content.DialogInterface;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -24,10 +23,8 @@ import android.widget.Toast;
 
 
 import com.example.cpo2_10.Dialog_main;
-import com.example.cpo2_10.FicheProduit;
 import com.example.cpo2_10.R;
 import com.example.cpo2_10.charte_activity;
-import com.example.cpo2_10.modele.add_newProduct;
 import com.example.cpo2_10.resultat;
 
 public class MainActivity extends AppCompatActivity {
@@ -113,10 +110,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // hello
-    public void carrefourWebsite(View view) {
-        Intent carrefourWebsiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.carrefour.fr/services/drive"));
-        startActivity(carrefourWebsiteIntent);
+
+    public void casinoWebsite(View view) {
+        Intent casinoWebsiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.casinodrive.fr/ecommerce/prehome/drive?gclid=CjwKCAjwp-X0BRAFEiwAheRuixQjR5cwuVofaJ6VF0pPMtXpKhElHcRuMxT4RV6RVyv0uiApY1X5ihoC1sgQAvD_BwE"));
+        startActivity(casinoWebsiteIntent);
     }
 
     public void lidl(View view) {
