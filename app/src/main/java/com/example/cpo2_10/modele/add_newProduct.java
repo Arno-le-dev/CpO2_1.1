@@ -155,6 +155,9 @@ public class add_newProduct extends AppCompatActivity implements AdapterView.OnI
                                                      creationFiche(Produit, Marque, empreinteCarbone, Origine, note);
 
                                                      Toast.makeText(add_newProduct.this, "Produit ajouté, merci beaucoup !", Toast.LENGTH_SHORT).show();
+                                                     Intent result = new Intent(getApplicationContext(), MainActivity.class);
+                                                     startActivity(result);
+                                                     finish();
                                                  }else{
 
                                                          dialog_ajout dialog_main = new dialog_ajout();
