@@ -9,8 +9,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import com.example.cpo2_10.modele.add_newProduct;
-
 public class dialog_ajout extends AppCompatDialogFragment {
 
     @Override

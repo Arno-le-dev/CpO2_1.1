@@ -17,8 +17,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import com.example.cpo2_10.vue.MainActivity;
-import static com.example.cpo2_10.vue.MainActivity.maBase;
+
+import static com.example.cpo2_10.MainActivity.maBase;
 
 
 public class resultat extends AppCompatActivity {
@@ -68,7 +68,7 @@ public class resultat extends AppCompatActivity {
                 TextView nom = (TextView) findViewById(R.id.nom);
                 TextView marque = (TextView) findViewById(R.id.marque);
                 TextView origine = (TextView) findViewById(R.id.origine);
-                TextView empreinteC = (TextView) findViewById(R.id.empreinteC);
+                TextView empreinteC = (TextView) findViewById(R.id.empreinteCarbone);
                 TextView note = (TextView) findViewById(R.id.note);
 
 

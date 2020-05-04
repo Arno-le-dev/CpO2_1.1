@@ -11,10 +11,13 @@
         android:roundIcon="@drawable/appli_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".charte_activity"></activity>
+        <activity android:name=".TEST"></activity>
+        <activity android:name=".affichageTop" />
+        <activity android:name=".top_5" />
+        <activity android:name=".charte_activity" />
         <activity android:name=".resultat" />
-        <activity android:name=".modele.add_newProduct" />
-        <activity android:name=".vue.MainActivity">
+        <activity android:name=".add_newProduct" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +26,7 @@
         </activity>
         <activity
             android:name=".Pop"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
     </application>
 
 </manifest>

@@ -10,9 +10,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.cpo2_10.modele.add_newProduct;
-import com.example.cpo2_10.vue.MainActivity;
-
 public class charte_activity extends AppCompatActivity {
 
 
@@ -33,14 +30,11 @@ public class charte_activity extends AppCompatActivity {
 
         btn_next = (Button) findViewById(R.id.btn_next);
 
-
-
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent addProduct = new Intent(getApplicationContext(), add_newProduct.class);
                 startActivity(addProduct);
-
             }
         });
 

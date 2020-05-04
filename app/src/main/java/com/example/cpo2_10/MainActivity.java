@@ -1,4 +1,4 @@
-package com.example.cpo2_10.vue;
+package com.example.cpo2_10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,12 +21,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 
-
-import com.example.cpo2_10.Dialog_main;
-import com.example.cpo2_10.R;
-import com.example.cpo2_10.charte_activity;
-import com.example.cpo2_10.resultat;
-
 public class MainActivity extends AppCompatActivity {
 
     private ImageView add;
@@ -34,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public static SQLiteDatabase maBase;
     private EditText nameSearch;
     private Button searchBtn;
+    private Button top10;
 
 
     @Override
@@ -63,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         maBase.execSQL(creation);
 
 
+
+
         this.add = (ImageView) findViewById(R.id.btnAdd);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+       top10 = (Button) findViewById(R.id.top10);
+
+        top10.setOnClickListener(new Button.OnClickListener() {
+                                         public void onClick(View view) {
+                                             Intent top_10 = new Intent(getApplicationContext(), top_5.class);
+                                             startActivity(top_10);
+                                             finish();
+                                         }
+                                     });
 
         searchBtn = (Button) findViewById(R.id.searchBtn);
         nameSearch = (EditText) findViewById(R.id.Name);

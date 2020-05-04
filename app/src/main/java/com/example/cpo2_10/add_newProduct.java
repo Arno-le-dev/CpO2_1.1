@@ -1,9 +1,9 @@
-package com.example.cpo2_10.modele;
+package com.example.cpo2_10;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,18 +19,10 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.cpo2_10.Dialog_main;
-import com.example.cpo2_10.R;
-import com.example.cpo2_10.dialog_ajout;
-import com.example.cpo2_10.resultat;
-import com.example.cpo2_10.vue.MainActivity;
-
-import java.util.Date;
-import java.util.Dictionary;
 
 public class add_newProduct extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

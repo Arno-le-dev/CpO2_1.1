@@ -5,7 +5,7 @@
     android:id="@+id/schema"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vue.MainActivity"
+    tools:context=".MainActivity"
     android:background="@drawable/background_1_0">
 
 
@@ -16,11 +16,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="54dp"
         android:background="@drawable/bouton_magasin"
-        android:onClick="carrefourWebsite"
+        android:onClick="casinoWebsite"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/carrefour_logo" />
+        app:srcCompat="@drawable/casino_logo" />
 
     <ImageButton
         android:id="@+id/casinoButton1"
@@ -134,7 +134,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchBtn" />
 
-
+    <Button
+        android:id="@+id/top10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="113dp"
+        android:text="Top 5 de nos produits"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/annonce" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
